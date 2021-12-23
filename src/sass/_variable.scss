@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em 1rem;
+}
+
+$primary: #264653 !default;
+$seconday: #2a9d8f !default;
+$info: #e9c46a !default;
+$warning: #f4a261 !default;
+$danger: #e76f51 !default;
+$success: green !default;
+$red: red;
+$blue: blue;
+$colmap: (
+  "primary": $primary,
+  "secondary": $seconday,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "success": $success,
+  "red": $red,
+  "blue": $blue,
+);
+
+//make color shade
+
+@each $colname, $col in $colmap {
+  .bg-#{$colname} {
+    background-color: $col;
+    color: oppositeCol($col);
+  }
+  .text-#{$colname} {
+    color: $col;
+  }
+  //generate shades for each color
+  @for $i from 1 through 10 {
+    .bg-#{$colname}-light-#{$i} {
+      background-color: lighten($color: $col, $amount: $i * 10);
+    }
+    .bg-#{$colname}-dark-#{$i} {
+      background-color: darken($color: $col, $amount: $i * 10);
+    }
+
+    //for text-shade
+    .text-#{$colname}-light-#{$i} {
+      color: lighten($color: $col, $amount: $i * 10);
+    }
+    .text-#{$colname}-dark-#{$i} {
+      color: darken($color: $col, $amount: $i * 10);
+    }
+  }
+}

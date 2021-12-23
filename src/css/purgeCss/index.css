@@ -1,0 +1,15 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em 1rem;
+}
+
+.bg-secondary {
+  background-color: #2a9d8f;
+  color: white;
+}
+
+.text-blue-light-5 {
+  color: white;
+}
